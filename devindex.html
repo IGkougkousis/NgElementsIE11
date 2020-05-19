@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<title>Angular Elements for IE11</title>
+
+<head>
+	<meta charset="UTF-8" />
+</head>
+
+<body>
+  <script src="demo-element.js"></script>
+  <button onclick="addAngularElement()">Click me to add demo element</button>
+  <!-- This is going to have to be changed manually, sorry -->
+  <script type="text/javascript">
+    function addAngularElement() {
+      // create element and set attributes here
+      var elem = document.createElement('demo-element');
+      var obj = {
+        name: 'markos',
+        age: 152,
+        dob: new Date('1901-04-18')
+      };
+      elem.prop1 = obj;
+      document.body.appendChild(elem);
+    }
+  </script>
+</body>
+
+</html>

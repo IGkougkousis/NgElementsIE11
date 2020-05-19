@@ -1,0 +1,121 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "newProjectRoot": "projects",
+  "projects": {
+    "demo-element": {
+      "projectType": "application",
+      "schematics": {},
+      "root": "projects/demo-element",
+      "sourceRoot": "projects/demo-element/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/demo-element",
+            "index": "projects/demo-element/src/index.html",
+            "main": "projects/demo-element/src/main.ts",
+            "polyfills": "projects/demo-element/src/polyfills.ts",
+            "tsConfig": "projects/demo-element/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "projects/demo-element/src/favicon.ico",
+              "projects/demo-element/src/assets"
+            ],
+            "styles": ["projects/demo-element/src/styles.css"],
+            "scripts": [
+              "node_modules/@webcomponents/custom-elements/src/native-shim.js"
+            ]
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/demo-element/src/environments/environment.ts",
+                  "with": "projects/demo-element/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "none",
+              "sourceMap": false,
+              "extractCss": false,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "demo-element:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "demo-element:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "demo-element:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/demo-element/src/test.ts",
+            "polyfills": "projects/demo-element/src/polyfills.ts",
+            "tsConfig": "projects/demo-element/tsconfig.spec.json",
+            "karmaConfig": "projects/demo-element/karma.conf.js",
+            "assets": [
+              "projects/demo-element/src/favicon.ico",
+              "projects/demo-element/src/assets"
+            ],
+            "styles": ["projects/demo-element/src/styles.css"],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/demo-element/tsconfig.app.json",
+              "projects/demo-element/tsconfig.spec.json",
+              "projects/demo-element/e2e/tsconfig.json"
+            ],
+            "exclude": ["**/node_modules/**"]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/demo-element/e2e/protractor.conf.js",
+            "devServerTarget": "demo-element:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "demo-element:serve:production"
+            }
+          }
+        }
+      }
+    }
+  },
+  "defaultProject": "demo-element"
+}
