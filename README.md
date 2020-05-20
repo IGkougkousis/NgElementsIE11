@@ -71,3 +71,6 @@ The npm scripts `build:demo` and `dev:demo` show how to build and run dev enviro
 
 You will only need to **manually** change `devindex.html`. I couldn't find a way to make that generic, if you have any ideas, pull requests are welcome.
 
+## Known limitations
+
+`[(ngModel)]` and reactive forms don't seem to work at all in IE11 when using the element (they work with `ng serve` though). I'm looking into this. If you know anything about this, please let me know.
