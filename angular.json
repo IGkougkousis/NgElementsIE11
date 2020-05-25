@@ -23,7 +23,7 @@
               "projects/demo-element/src/favicon.ico",
               "projects/demo-element/src/assets"
             ],
-            "styles": ["projects/demo-element/src/styles.css"],
+            "styles": ["projects/demo-element/src/styles.scss"],
             "scripts": [
               "node_modules/@webcomponents/custom-elements/src/native-shim.js"
             ]
@@ -87,7 +87,7 @@
               "projects/demo-element/src/favicon.ico",
               "projects/demo-element/src/assets"
             ],
-            "styles": ["projects/demo-element/src/styles.css"],
+            "styles": ["projects/demo-element/src/styles.scss"],
             "scripts": []
           }
         },

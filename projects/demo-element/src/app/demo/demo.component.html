@@ -1,2 +1,25 @@
-<p>demo works!</p>
-<p>My prop1 is {{ prop1 | json }}</p>
+<div class="container">
+  <p class="lead">Hi! I am the demo-element created using Angular Elements</p>
+  <div class="alert alert-info" role="alert">
+    Notice how I have Bootstrap styles but the parent document doesn't.
+  </div>
+  <p>
+    My prop1 came from input and it is: <br />
+    {{ prop1 | json }}
+  </p>
+
+  <div>My prop2 is bound with [(ngModel)] to the input below</div>
+  <div class="form-group">
+    <label for="prop2">prop2</label>
+    <input id="prop2" type="text" class="form-control" [(ngModel)]="prop2" />
+  </div>
+  <div>Result:</div>
+  <div class="input-group my-2">
+    <div class="input-group-prepend">
+      <span class="input-group-text">prop2</span>
+    </div>
+    <div class="input-group-append">
+      <span class="input-group-text">{{ prop2 | json }}</span>
+    </div>
+  </div>
+</div>
