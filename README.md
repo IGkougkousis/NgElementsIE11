@@ -37,6 +37,8 @@ import '@angular/localize/init';
 import 'zone.js/dist/zone';
 ```
 
+I know these are too many, but this is to stay on the safe side. Through trial and error, find out what you don't need and remove it.
+
 4. In `project/my-app/src/browserslist` delete the `not` before `IE9-IE11`
 
 5. Assuming you only have an `AppComponent`, make sure your `app.module.ts` looks something like this:
@@ -81,6 +83,8 @@ You will only need to **manually** change `devindex.html`. I couldn't find a way
 
 ## Tips
 
+### Encapsulate your styles
+
 You should encapsulate the styles you want to use in your element so they don't get applied to the parent document. For example if you want to use Bootstrap in your element, try this:
 
 **projects/demo-element/src/styles.scss**
@@ -93,3 +97,6 @@ demo-element {
 
 where `demo-element` is the name you define in `app.module.ts`, NOT the project name. The custom element you define there is what the browser will understand.
 
+## Don't sweat the bundle size
+
+Any client asking you to support IE is probably on a corporate intranet, so network is less of an issue compare to websites served over the internet. Anything you give them with this project template is probably going to be much more responsive and faster compared to whatever 12 year old jQuery they're currently using.
