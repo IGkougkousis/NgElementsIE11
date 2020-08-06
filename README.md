@@ -25,7 +25,7 @@ Obviously `git clone`, `npm install` before doing anything else.
 
 2. In `angular.json` find the part that refers to `my-app` and change `outputHashing` to `"none"` and `extractCss` to `false`. Add `"node_modules/@webcomponents/custom-elements/src/native-shim.js"` to the `scripts` array (should be empty by default)
 
-3. In `projects/my-app/src/app/polyfills.ts` you must include:
+3. In `projects/my-app/src//polyfills.ts` you must include:
 
 ```typescript
 import '@webcomponents/webcomponentsjs/custom-elements-es5-adapter.js';
@@ -39,7 +39,7 @@ import 'zone.js/dist/zone';
 
 I know these are too many, but this is to stay on the safe side. Through trial and error, find out what you don't need and remove it.
 
-4. In `project/my-app/src/browserslist` delete the `not` before `IE9-IE11`
+4. In `project/my-app/src/.browserslistrc` delete the `not` before `IE9-IE11`
 
 5. Assuming you only have an `AppComponent`, make sure your `app.module.ts` looks something like this:
 
