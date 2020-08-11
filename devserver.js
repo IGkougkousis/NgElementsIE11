@@ -1,5 +1,3 @@
-// Dev server for testing the VodafoneSummernote editor
-// Simply serves index.html and static files
 const express = require("express");
 const path = require("path");
 
